@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4ff7c56-eadf-4a19-8d04-3bdf1d26371c" name="Changes" comment="clean">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/disambiguate_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/disambiguate_route.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/JS/disambiguate.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/JS/disambiguate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/pages/disambiguate.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/pages/disambiguate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/test_pres.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/test_pres.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +103,7 @@
   <component name="RunManager" selected="Python.run">
     <configuration name="dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SOFTware-Viz" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -128,13 +126,13 @@
     </configuration>
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SOFTware-Viz" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.10 (SOFTware-Viz)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -159,7 +157,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+        <option value="bundled-python-sdk-eebebe6c2be4-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15325.20" />
       </set>
     </attachedChunks>
   </component>
@@ -198,6 +196,7 @@
       <workItem from="1721296210313" duration="1943000" />
       <workItem from="1721306331675" duration="7710000" />
       <workItem from="1721639785989" duration="16961000" />
+      <workItem from="1721811738108" duration="1484000" />
     </task>
     <task id="LOCAL-00004" summary="New links for the software in doc sources and other soft">
       <option name="closed" value="true" />
