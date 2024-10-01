@@ -1,6 +1,29 @@
 from app.app import app, db
-from Utils.disambiguate import desambiguate_from_software
-from flask import jsonify, render_template
+from Utils.test import function_test_software
+from flask import render_template
+
+
+
+@app.route('/test')
+def test():
+    return render_template("pages/test.html")
+
+@app.route('/test/software')
+def test_2():
+    #fonction python (data)
+    data = function_test_software(db)
+    #template html
+    return '<br>'.join(data)
+
+
+
+# route => utils fonction => html
+
+
+
+
+
+
 
 # Voilà 4 exercices de simple à difficile. Commente un maximum ton code !
 
