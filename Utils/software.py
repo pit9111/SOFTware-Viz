@@ -112,7 +112,9 @@ def dataset_creator(raw_dictionnary):
     dataset = []
     dataset_label = {}
 
+    #boucle for sur les clés et valeurs de la data
     for label, values in raw_dictionnary.items():
+        # parsing each dictionnary for every possible labels and creating variables
         if label == 'created':
             new_dataset = {"label": label, "backgroundColor": "#363949", "borderColor": "#363949", "data": [],
                            "order": 0}
@@ -122,20 +124,31 @@ def dataset_creator(raw_dictionnary):
         elif label == 'shared':
             new_dataset = {"label": label, "backgroundColor": "#677483", "borderColor": "#677483", "data": [],
                            "order": 2}
-
+        #parsing each doctionnary with all the files and the information
         for item, data in values.items():
+            # for each entries we create a new bubble with its coordinates
             new_data = {"x": int(item), "y": data[0], "v": data[0], "label": data[1]}
+            # we append the value of each data in the dataset we created above
             new_dataset['data'].append(new_data)
+        # for each types of labels we create a new dataset and new bubbles for the graph, using the raw_dictionnary
         dataset.append(new_dataset)
 
+    # this function returns a dictionnary of bubble's coordinates that are the same and overlap
     position_counts = find_duplicate_positions(dataset)
     print(position_counts)
+    # check if there is any overlapping bubble
     if position_counts:
+        # parsing every overlapping bubble
         for date,label_list in position_counts.items():
+            # check if there is more than two labels
             if len(label_list) >= 2:
+               # parsing the full original dataset with every bubble
                for data in dataset:
+                   # looking for every bubbles that has the label of an overlapping bubble
                    if data['label'] == label_list[0]:
+                       # checking the coordinates of every bubble
                       for data_point in data['data']:
+                          # check inside the originale dataset if the bubble is one of the overlapping ones
                           if data_point['x'] == date[0] and data_point['v'] == date[1]:
                             data_point['display_custom'] = 'off'
                             padding = (data_point['v']*4)*0.01
@@ -156,6 +169,5 @@ def dataset_creator(raw_dictionnary):
             new_point = {"x": blank_data_point[0], "y": blank_data_point[1], "v": blank_data_point[1], "label": "", "display_custom" : "on"}
             dataset_label['data'].append(new_point)
         dataset.append(dataset_label)
-        print('dataset',dataset)
     return dataset
 
