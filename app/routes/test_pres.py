@@ -1,5 +1,5 @@
 from app.app import app, db
-from Utils.disambiguate import desambiguate_from_software
+from Utils.all_struct import function_test_software
 from flask import jsonify, render_template
 
 # Voilà 4 exercices de simple à difficile. Commente un maximum ton code !
@@ -12,7 +12,16 @@ from flask import jsonify, render_template
 #
 # Imprimer une liste distincte de toutes les structures dans la base de données
 #
+@app.route('/test')
+def test():
+    return render_template("pages/test.html")
 
+@app.route('/test/software')
+def test_2():
+    #fonction python (data)
+    data = function_test_software(db)
+    #template html
+    return '<br>'.join(data)
 
 
 # -------------
