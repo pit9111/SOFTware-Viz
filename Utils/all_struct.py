@@ -1,4 +1,4 @@
-def function_test_software(db):
+def list_struct_dist(db):
     query = f"""
                 FOR doc IN documents
                 for struc in doc.structures
