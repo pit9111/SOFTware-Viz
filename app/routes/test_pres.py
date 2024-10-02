@@ -1,6 +1,10 @@
 from app.app import app, db
-from Utils.disambiguate import desambiguate_from_software
+from Utils.all_struct import list_struct_dist
 from flask import jsonify, render_template
+
+@app.route('/test')
+def test():
+    return render_template("pages/test.html")
 
 # Voilà 4 exercices de simple à difficile. Commente un maximum ton code !
 
@@ -12,17 +16,13 @@ from flask import jsonify, render_template
 #
 # Imprimer une liste distincte de toutes les structures dans la base de données
 #
-@app.route('/test')
-def test():
-    return render_template("pages/test.html")
 
-@app.route('/test/software')
-def test_2():
+@app.route('/test/exo_1')
+def exo_1():
     #fonction python (data)
-    data = function_test_software(db)
+    data = list_struct_dist(db)
     #template html
     return '<br>'.join(data)
-
 
 # -------------
 # Exercice 02 (facile) :
@@ -35,7 +35,7 @@ def test_2():
 #
 # ex : {"hal-982369" : ["Python", "Pytorch", "Mass", "FCA"], ... }
 
-
+# commenter le fichier DB / doc.py/doc_info_from_id et software.py/software_all_mentions
 
 # -------------
 # Exercice 03 (moyen) :
@@ -43,14 +43,12 @@ def test_2():
 #
 # route -> Utils/scripts -> route -> static/templates/page
 #
-# Permettre l'accès à une page HTML (simple sans CSS, en blanc) avec une liste HTML des auteurs dans la base de données
+# Faire une page HTML (simple sans CSS, en blanc) avec une liste HTML des auteurs dans la base de données
 #
 # ex : <ul>
 #           <li>Samuel Scalbert</li>
 #           <li>Daniel Da Silva</li>
 #      </ul>
-
-
 
 # -------------
 # Exercice 04 (moyen) :
