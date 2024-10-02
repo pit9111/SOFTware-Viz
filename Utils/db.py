@@ -75,7 +75,7 @@ def insert_json_db(data_path_json,data_path_xml,db):
             file_name, extension = os.path.splitext(file_name)
 
         if file_name in files_list_registered:
-            continue
+            break
         time.sleep(0.2)
         url = "https://api.archives-ouvertes.fr/search/"
         params = {
