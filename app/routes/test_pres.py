@@ -41,8 +41,11 @@ def exercice1_list_struct():
 def exercice2_list_soft():
     #fonction python (data)
     data = function_doc_software(db)
-    #template html
-    return data
+    # l'erreur provient du type de data qui est en bytes
+    new_list = []
+    for data in data:
+        new_list.append(data)
+    return data[0]
 
 # -------------
 # Exercice 03 (moyen) :
