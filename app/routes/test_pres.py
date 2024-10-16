@@ -60,6 +60,12 @@ def exercice2_list_soft():
 #           <li>Daniel Da Silva</li>
 #      </ul>
 
+@app.route('/exercice_test/number_3_test')
+def exercice3_test_html():
+    data = ["Hello world","Hello world","Hello worlds","Hello worldsss","Hello worldsss","Hello worldsssssss"]
+    return render_template('pages/test_html.html',data = data)
+
+
 # -------------
 # Exercice 04 (moyen) :
 # -------------
