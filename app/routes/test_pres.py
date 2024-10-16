@@ -1,12 +1,13 @@
 from app.app import app, db
 from Utils.all_struct import list_struct_dist
+from Utils.all_struct_exo2 import function_doc_software
 from flask import jsonify, render_template
-
-@app.route('/test')
-def test():
-    return render_template("pages/test.html")
-
 # Voilà 4 exercices de simple à difficile. Commente un maximum ton code !
+
+@app.route('/exercice_test')
+def exercice0_test():
+    return '<br>'.join("Hello World")
+
 
 # -------------
 # Exercice 01 (facile) :
@@ -17,12 +18,13 @@ def test():
 # Imprimer une liste distincte de toutes les structures dans la base de données
 #
 
-@app.route('/test/exo_1')
-def exo_1():
+@app.route('/exercice_test/number_1')
+def exercice1_list_struct():
     #fonction python (data)
     data = list_struct_dist(db)
     #template html
     return '<br>'.join(data)
+
 
 # -------------
 # Exercice 02 (facile) :
@@ -35,7 +37,12 @@ def exo_1():
 #
 # ex : {"hal-982369" : ["Python", "Pytorch", "Mass", "FCA"], ... }
 
-# commenter le fichier DB / doc.py/doc_info_from_id et software.py/software_all_mentions
+@app.route('/exercice_test/number_2')
+def exercice2_list_soft():
+    #fonction python (data)
+    data = function_doc_software(db)
+    #template html
+    return data
 
 # -------------
 # Exercice 03 (moyen) :
