@@ -1,6 +1,7 @@
 from app.app import app, db
 from Utils.all_struct import list_struct_dist
 from Utils.all_struct_exo2 import function_doc_software
+from Utils.all_authors import function_all_authors
 from flask import jsonify, render_template
 # Voilà 4 exercices de simple à difficile. Commente un maximum ton code !
 
@@ -62,7 +63,7 @@ def exercice2_list_soft():
 
 @app.route('/exercice_test/number_3_test')
 def exercice3_test_html():
-    data = ["Hello world","Hello world","Hello worlds","Hello worldsss","Hello worldsss","Hello worldsssssss"]
+    data= function_all_authors(db)
     return render_template('pages/test_html.html',data = data)
 
 
