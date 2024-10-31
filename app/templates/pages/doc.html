@@ -35,6 +35,16 @@
             {% endfor %}
          </ul>
       </div>
+      <div class="other-articles">
+         <p class="titre">Other articles</p>
+         <ul>
+            {% for hal_id in data[5] %}
+            <li>
+               <a href="{{ url_for('doc_info', doc_id=hal_id) }}">{{ hal_id }}</a>
+            </li>
+            {% endfor %}
+         </ul>
+      </div>
    </div>
 </div>
 {% endblock %}

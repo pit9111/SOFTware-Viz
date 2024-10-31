@@ -59,7 +59,7 @@ body{
     margin:2rem;
 }
 
-.contexts, .source, .all-sources, .other-software{
+.contexts, .source, .all-sources, .other-software, .other-articles{
     border: 2px solid transparent;
     box-shadow: 0 3px 4px #00000029;
     font-family: "Poppins", sans-serif;
@@ -71,7 +71,7 @@ body{
     padding:1rem;
 }
 
-.contexts:hover, .source:hover, .all-sources:hover, .other-software:hover{
+.contexts:hover, .source:hover, .all-sources:hover, .other-software:hover, .other-articles:hover{
     background:
     linear-gradient(var(--widget-background) 0 0) padding-box, /*this is your grey background*/
     linear-gradient(to left, #b3679c, #42a7e4) border-box;
@@ -83,7 +83,7 @@ body{
     width:100%;
 }
 
-.source, .all-sources, .other-software {
+.source, .all-sources, .other-software, .other-articles {
     box-sizing: border-box;
     flex: 250px;
     margin-bottom: 25px;
@@ -137,7 +137,7 @@ body{
 }
 
 
-.all-sources li, .other-software li {
+.all-sources li, .other-software li, .other-articles li {
     float:left;
     width:50%;
     display:inline;

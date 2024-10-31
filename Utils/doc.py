@@ -55,6 +55,7 @@ def doc_software(file_id,software,db):
             offsetEnd = json_software["software_name"]["offsetEnd"]
             context = json_software['context']
             context = context[:offsetStart] + '<span class="software-name"><strong>' + context[offsetStart:offsetEnd] + '</strong></span>' + context[offsetEnd:]
+            print(context[offsetStart:offsetEnd])
             max_score = float('-inf')
             for attribute, details in json_software["mentionContextAttributes"].items():
                 if details["score"] > max_score:
@@ -86,6 +87,7 @@ def doc_info_from_id(file_id,db):
         file_meta = 'not file'
         return file_meta
     abstract = (file_meta[0]['abstract'])
+
     if abstract[0] == 'HAL':
         abstract.remove('HAL')
     if abstract[0] == 'GROBID':
@@ -102,18 +104,22 @@ def doc_info_from_id(file_id,db):
                    """
 
     list_other_softwares = db.AQLQuery(query, rawResults=True)
+    all_articles = []
+    for software in list_other_softwares:
+        query_articles = f"""
+            FOR software IN softwares
+                FILTER software.software_name.normalizedForm == "{software}"
+                FOR edge IN edge_software
+                    FILTER edge._to == software._id
+                    LET doc_id = edge._from
+                    LET doc = DOCUMENT(doc_id)
+                    RETURN DISTINCT doc.file_hal_id
+        """
+        articles = db.AQLQuery(query_articles, rawResults=True)
+        all_articles.extend(articles)  # Ajouter les articles à la liste finale
 
-    '''query = f"""
-                   FOR software IN softwares
-                       FILTER software.software_name.normalizedForm == "{software}"
-                       FOR edge IN edge_software
-                           FILTER edge._to == software._id
-                           LET doc_id = edge._from
-                           LET doc = DOCUMENT(doc_id)
-                           RETURN DISTINCT doc.file_hal_id
-               """
-
-    list_other_articles = db.AQLQuery(query, rawResults=True)'''
+    # Résultat : liste complète de tous les articles associés
+    list_other_articles = list(set(all_articles))  # Pour éviter les doublons
     for id_software_doc in db['edge_software'].getEdges(file_meta_id):
         to_id = id_software_doc['_to']
         json_software = db.AQLQuery("LET file_meta = DOCUMENT('" + to_id + "') RETURN file_meta", rawResults=True)
@@ -139,6 +145,6 @@ def doc_info_from_id(file_id,db):
         abstract = None
     title = db.AQLQuery(f"LET doc = DOCUMENT('{file_meta_id}') RETURN doc.title", rawResults=True)
     title = title[0]
-    data = [dic_context, abstract, citation, list_other_softwares, title]
+    data = [dic_context, abstract, citation, list_other_softwares, title,list_other_articles]
 
     return data
